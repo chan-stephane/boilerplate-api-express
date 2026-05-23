@@ -23,6 +23,7 @@ Additional libraries: `bcrypt`, `cors`, `cookie-parser`.
 
 - **Health check** — `GET /up` returns server status and uptime
 - **Authentication** — login with email/password; JWT stored in `x-access-token` cookie
+- **Auth middleware** — protect routes by verifying the JWT from the `x-access-token` cookie
 - **Logout** — clears the auth cookie
 - **Input validation** — Joi schemas on auth routes
 - **Structured responses** — consistent `{ code, status, message, data }` JSON shape
@@ -39,6 +40,8 @@ Additional libraries: `bcrypt`, `cors`, `cookie-parser`.
 │   ├── jwt.config.js         # JWT secret & expiration
 │   └── mail.config.js        # SMTP settings
 ├── controllers/              # Request handlers
+├── middlewares/
+│   └── auth.middleware.js    # JWT cookie verification for protected routes
 ├── database/
 │   └── prisma.js             # Prisma client (PostgreSQL adapter)
 ├── models/                   # Data / business logic
